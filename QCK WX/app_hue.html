@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<script>var __pbpa = true;</script><script>var translated_warning_string = 'Warning: Never enter your Tumblr password unless \u201chttps://www.tumblr.com/login\u201d\x0ais the address in your web browser.\x0a\x0aYou should also see a green \u201cTumblr, Inc.\u201d identification in the address bar.\x0a\x0aSpammers and other bad guys use fake forms to steal passwords.\x0a\x0aTumblr will never ask you to log in from a user\u2019s blog.\x0a\x0aAre you absolutely sure you want to continue?';</script><script type="text/javascript" language="javascript" src="http://assets.tumblr.com/assets/scripts/pre_tumblelog.js?_v=81465be7ec0ee40855d0652f7673c1c2"></script>
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8">
+<title>Inspired UI - Mobile Apps Design Patterns [Android]</title>
+<meta name="title" content="Inspired UI - Mobile Apps Design Patterns [Android]" />
+<meta name="description" content="A showcase of the best examples of beautifully designed mobile apps - iPhone, iPad, Android, UI Patterns" />
+<meta name="author" content="Sergey Pakhandrin @th3same" />
+<meta name="keywords" content="app design, mobile ui, iphone ui, ipad ui, android ui, mobile patterns, ui patterns, apps, design, android, iphone, ipad" />    
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!--Verifications-->
+<meta name="wot-verification" content="6566c2f44d510d4e4733"/>
+<meta name="google-site-verification" content="pdv9RlEyMkVa6oolhLfBrgVjrS1b6FLIRnuAKOlmTKA" />    
+<meta name="msvalidate.01" content="921588CB3D90F5D72588667580DC142A" />
+<!--Facebook meta tags-->
+<meta property="og:url" content="http://inspired-ui.com/" />
+<meta property="og:title" content="Inspired UI - Mobile Apps Design Patterns" />
+<meta property="og:image" content="http://static.tumblr.com/vowtf1z/t3ymwpnys/logo_200.png" />
+<meta property="og:description" content="A showcase of the best examples of beautifully designed mobile apps - iPhone, iPad, Android, UI Patterns" />
+<meta property="og:type" content="website" />
+<meta property="fb:admins" content="1231801492" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<style>figure{margin:0}.tmblr-iframe{position:absolute}.tmblr-iframe.hide{display:none}</style>
+<link rel="shortcut icon" href="http://static.tumblr.com/vowtf1z/s8Pmnhqye/favicon.png" />
+<link rel="apple-touch-icon-precomposed" href="http://static.tumblr.com/vowtf1z/rIHmnhqth/apple-touch-icon-precomposed.png" />
+<link rel="alternate" type="application/rss+xml" href="http://android.inspired-ui.com/rss" />
+<link rel="stylesheet" href="http://static.tumblr.com/vowtf1z/qBPlw5nqx/style.css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<script type="text/javascript">
+    function showCategories(e) {
+        if (jQuery('.categories').is(':visible')) return hideCategories(e);
+
+        jQuery('.categories').show();
+        if (jQuery('.categories .recent').css('display') == 'block') {
+            jQuery('.categories').css('left', '-280px').animate({ left: '0px' }, 200);
+            jQuery('#container').css('margin-left', '0px').css('margin-right', '0px').animate({ marginLeft: '280px', marginRight: '-280px' }, 200);;
+        }
+        else {
+            jQuery('.categories').css('left', '0px');
+            jQuery('#container').css('margin-left', '280px').css('margin-right', '-280px');
+        }
+        e.stopPropagation();
+    }
+    function hideCategories(e) {
+        if (jQuery('.categories').is(':hidden')) return;
+
+        if (jQuery('.categories .recent').css('display') == 'block' && jQuery('.categories').css('left') == '0px') {
+            jQuery('.categories').animate({ left: '-280px' }, 200, function () {jQuery('.categories').css('left', '0px').hide()} );
+            jQuery('#container').animate({ marginLeft: '0px', marginRight: '0px' }, 200);;
+        }
+        else {
+            jQuery('#container').css('margin-left', '0px').css('margin-right', '0px');
+            jQuery('.categories').css('left', '0px').hide();
+        }
+        e.stopPropagation();
+        e.preventDefault();
+    }
+</script>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53e0e8cd4e0e36c0"></script>
+
+<!-- Please call pinit.js only once per page -->
+<script type="text/javascript" async  data-pin-color="white" data-pin-height="28" data-pin-hover="true" src="//assets.pinterest.com/js/pinit.js"></script>
+
+<style type="text/css">
+
+body .one .bsa_it_ad { background: transparent; border: none; font-family: inherit;  margin: 0px 0 0 0px; padding-left: 0px; text-align: left; }
+body .one .bsa_it_ad:hover img { -moz-box-shadow: 0 0 0px #000; -webkit-box-shadow: 0 0 0px #000; box-shadow: 0 0 0px #000; }
+body .one .bsa_it_ad .bsa_it_i { display: block; padding: 0; float: none; margin: 0 0 5px; }
+body .one .bsa_it_ad .bsa_it_i img { padding: 0; border: none; }
+body .one .bsa_it_ad .bsa_it_t { padding: 6px 0; }
+body .one .bsa_it_ad .bsa_it_d { padding: 0; font-size: 10px; color: #333; }
+body .one .bsa_it_p { display: none; }
+body #bsap_aplink, body #bsap_aplink:hover { display: block; font-size: 10px; margin: 0px 0px 0px; text-align: left; }
+body .one .bsa_it_ad { padding-top: 0px; }
+
+body .one .bsap_aplink {display: none; }
+
+body {
+    margin: 0px;
+    background-color: #464646;
+    font-family: "Open Sans", Tahoma, Arial;
+    font-size: 14px;
+    color: #000;
+}
+
+#container {
+    background: #fff url(http://static.tumblr.com/vowtf1z/XAmn9ew6g/backgr1.png) repeat 0px 0px;
+}
+
+body a {
+    text-decoration: none;
+    color: #0080cf;
+    cursor: pointer;
+}
+
+body a:visited {
+    color: #0080cf;
+}
+
+body a:hover {
+    text-decoration: underline;
+}
+
+.header {
+    height: 79px;
+    background-color: #1d1d1d;
+}
+
+.header>div {
+    width: 1665px;
+    margin: 0px auto;
+}
+
+.h1_logo {
+    display: inline-block;
+    position:relative; 
+    top: -28px; 
+    left: 17px; 
+    color: white; 
+
+    font-size: 12px;
+}
+
+.header>div>.menubtn {
+    display: none;
+    position: absolute;
+    padding: 10px 0px 10px 55px;
+    background: transparent url(http://static.tumblr.com/h5bxecc/Dhhmlzi1z/menu.png) no-repeat 20px center;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.header>div>a>img {
+    margin-top: -2px;
+}
+
+.header .search, .categories .search {
+    float: right;
+    margin-top: 30px;
+}
+
+.header .search img, .categories .search img {
+    position: absolute;
+    vertical-align: middle;
+    margin-top: 6px;
+    margin-left: 8px;
+}
+
+.header .search input, .categories .search input {
+    padding: 0px 10px 0px 35px;
+    width: 217px;
+    height: 30px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.header .search input {
+    width: 202px;
+}
+
+.menu {
+    margin: 0px 55px 0px 0px;
+    height: 135px;
+    color: #000;
+    line-height: 125px;
+}
+
+.menu a {
+    margin-right: 40px;
+    font-size: 24px;
+    /*text-decoration: underline;*/
+    color: #000;
+}
+
+.menu a.active {
+    color: #0080cf;
+}
+
+.menu a img {
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+.menu .android_link, .menu .iphone_link {
+    float: right;
+    margin: 30px 0px 0px 20px;
+    width: 40px;
+    font-size: 12px;
+    /*text-decoration: underline;*/
+    text-align: center;
+    line-height: 12px;
+    color: #818181;
+}
+
+.menu .ipad_link {
+    float: right;
+    margin: 25px 0px 0px 20px;
+    width: 40px;
+    font-size: 12px;
+    /*text-decoration: underline;*/
+    text-align: center;
+    line-height: 12px;
+    color: #818181;
+}
+
+.menu .android_link.active, .menu .iphone_link.active, .menu .ipad_link.active {
+    color: #1d1d1d;
+}
+
+.menu .android_link div {
+    display: inline-block;
+    width: 26px;
+    height: 50px;
+    background: transparent url(http://static.tumblr.com/h5bxecc/beBmlvh7b/android.png) no-repeat 0px -50px;
+}
+
+.menu .ipad_link div {
+    display: inline-block;
+    width: 43px;
+    height: 55px;
+    background: transparent url(http://static.tumblr.com/vowtf1z/K1Bmwvl3z/ipadd.png) no-repeat 0px -55px;
+}
+
+.menu .iphone_link div {
+    display: inline-block;
+    width: 26px;
+    height: 50px;
+    background: transparent url(http://static.tumblr.com/h5bxecc/snImmg4wg/iphone.png) no-repeat 0px -50px;
+}
+
+.menu .android_link.active div, .menu .iphone_link.active div, .menu .ipad_link.active div {
+    background-position: 0px 0px;
+}
+
+.categories .android_link, .categories .iphone_link, .categories .ipad_link {
+    display: none;
+    margin: 10px 0px 0px 0px;
+    padding: 7px 0px 5px 0px;
+    width: 80px;
+    border-radius: 4px;
+    background-color: #595959;
+    font-size: 12px;
+    /*text-decoration: underline;*/
+    text-align: center;
+    line-height: 20px;
+    color: #ababab;
+}
+
+.categories .android_link.active, .categories .iphone_link.active, .categories .ipad_link.active {
+    color: #ffffff;
+    background-color: #018ec9;
+}
+
+.categories .android_link div {
+    height: 61px;
+    background: transparent url(http://static.tumblr.com/h5bxecc/uFDmmg5et/android-white.png) no-repeat center -61px;
+}
+
+.categories .ipad_link div {
+    height: 67px;
+    background: transparent url(http://static.tumblr.com/vowtf1z/1Dfmwvncd/ipad_white.png) no-repeat center -67px;
+}
+
+.categories .iphone_link div {
+    height: 61px;
+    background: transparent url(http://static.tumblr.com/h5bxecc/slkmmg5fs/iphone-white.png) no-repeat center -61px;
+}
+
+.categories .android_link.active div, .categories .iphone_link.active div, .categories .ipad_link.active div {
+    background-position: center 0px;
+}
+
+.categories {
+    display: none;
+    position: absolute;
+    margin: -55px 0px 0px 120px;
+    width: 560px;
+    padding: 15px 30px;
+    background-color: rgba(255, 255, 255, 0.97);
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.categories .recent {
+    display: none;
+}
+
+.categories>form {
+    display: none
+}
+
+.categories ul {
+    column-count: 3;
+    -moz-column-count: 3;
+    -webkit-column-count: 3
+}
+
+.categories ul a {
+    display: block;
+    margin-top: 3px;
+    padding: 2px 10px 5px 10px;
+    font-size: 18px;
+    color: #1d1d1d;
+}
+
+.categories ul a:hover {
+    background-color: #48a1d9;
+    color: #fff;
+    text-decoration: none;
+}
+
+.categories ul li.active a {
+    color: #0080cf;
+}
+
+.content {
+    margin: 0px auto;
+    text-align: center;
+}
+
+.content>div {
+    width: 1405px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+}
+
+.content>aside {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 135px;
+    margin-left: 10px;
+    width: 260px;
+    white-space: normal;
+    text-align: left;
+}
+
+.content>aside>h3 {
+    display: block;
+    margin: 0px 0px 20px 0px;
+    padding: 5px 10px 5px 10px;
+    background-color: rgba(0, 128, 207, 0.7);
+    font-size: 24px;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.content>aside>div {
+    margin-bottom: 20px;
+}
+
+.content>aside>div>a {
+    font-size: 18px;
+    /*text-decoration: underline;*/
+    color: #1d1d1d;
+}
+
+.pagination {
+    margin-right: 48px;
+    height: 100px;
+    padding-top: 10px;
+}
+
+.pagination>span:first-child {
+    float: right;
+}
+
+.pagination>span:last-child {
+    float: left;
+}
+
+.pagination a {
+    font-size: 24px;
+    /*text-decoration: underline;*/
+    text-transform: uppercase;
+    color: #1d1d1d;
+}
+
+.posts {
+    min-height: 650px;
+}
+
+.posts .post {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0px 22px 50px 0px;
+}
+
+.post .post-frame {
+    position:relative;
+    /*border: solid 3px #000;*/
+	border-bottom-width: 0px;
+    height: auto;
+    width: 320px;
+    /*background-color: #000;*/
+}
+
+
+.post .post-frame img {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    max-height: 100%;
+	border: solid 1px #CCC;
+	box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.post .post-info .show-all {
+    float: right;
+    margin-top: 8px;
+    text-decoration: none;
+    display: none;
+    font-size: 14px;
+    color: #646464;
+}
+
+.post .post-info .caption {
+    float: right;
+    margin-left: 29px;
+    padding-top: 8px;
+    font-size: 16px;
+    color: #646464;
+}
+
+.post .post-info .caption p {
+    margin: 0;
+}
+
+.post .post-info .tags, .post .post-frame .tags {
+    display: none;
+}
+
+.footer {
+    background-color: #1d1d1d;
+    height: 100px;
+	padding-top: 20px;
+    text-align: center;
+}
+
+.footer .topline {
+    height: 65px;
+    border-top: 1px solid #686868;
+    background-color: #464646;
+    text-align: center;
+    line-height: 65px;
+    white-space: nowrap;
+}
+
+.footer .topline img {
+    display: inline-block;
+    margin: 0px 25px;
+    vertical-align: middle;
+}
+
+.footer .logo {
+    margin: 8px 0px;
+    overflow: hidden;
+}
+
+.footer .logo img {
+    margin: -14px 0px -8px 0px;
+}
+
+.footer .copyright {
+    color: #a8a8a8;
+}
+
+.footer .mailto {
+    display: inline-block;
+    margin: 10px 0px 30px 0px;
+    font-size: 16px;
+    color: #fff;
+}
+
+.footer .mailto img {
+    position: relative;
+    left: -4px;
+    top: 2px;
+    vertical-align: baseline;
+}
+
+.footer .design, .footer .design a {
+    font-size: 12px;
+    color: #fff;
+}
+
+.support { text-align: center; width: 100%; height: 85px; background-color: #007fcf; } 
+
+.supportText { position: relative; top: 10px; font-size: 20px; color: white; z-index: 9999; }
+
+.supportFollow { padding-top: 19px;}
+
+.supportURL { color: white; text-decoration:none; border-bottom: 1px solid rgba(255,255,255, 0.5);  }
+.supportURL:hover { color: white; text-decoration:none; border-color: #007fcf; }
+.supportURL:visited { color: white; }
+
+.rss_subscribe { display: none; }
+
+#tumblr_controls {
+            display: none;
+        }
+
+@media only screen and (min-width: 1400px) and (max-width: 1750px) {
+    .header>div { width: 1310px }
+    .content>div{ width: 1050px }
+	.pagination { margin-right: 48px; }
+}
+
+@media only screen and (min-width: 750px) and (max-width: 1400px) {
+    .header>div { width: 960px }
+    .content>div{ width: 700px }
+	.pagination { margin-right: 32px; }
+	.menu { margin-right: 40px; }
+}
+
+@media only screen and (min-width: 750px) and (max-width: 1000px) {
+    .h1_logo { display: none; }
+    .header { height: 44px }
+    .header>div { width: auto; text-align: center }
+    .header>div>a>img { height: 47px }
+    .header>div>form { display: none }
+    .header>div>.menubtn{ display: block }
+    .content>div{ display: block; margin: 50px auto 0px auto }
+    .content>aside{ display: block; width: 678px; margin: 0px auto }
+    .footer { height: 100px; padding-top: 20px }
+    .footer .topline{ display: none }
+	.ads_div { display: none; }
+	#follow_me_header { display: none; }
+    .rss_subscribe { display: none; }
+	.follow_me_twitter { display: none; }    
+	.fb_like_box { display: none; }
+	.pagination { margin-right: 25px; }
+	.supportURL { top: 100px; }
+}
+
+@media only screen and (max-width: 750px) {
+    .h1_logo { display: none;  }
+    .header { height: 44px }
+    .header>div { width: auto; text-align: center }
+    .header>div>a>img { height: 47px; margin-left: -55px; }
+    .header>div>form { display: none }
+    .header>div>.menubtn{ position:relative; display: block; float: left; width: 1px; overflow: hidden }
+    .content>div{ display: block; width: 320px; margin: 50px auto 0px auto }
+    .content>aside{ display: block; width: 320px; margin: 0px auto }
+    .posts .post { margin-left: 0px; margin-right: 0px }
+    .post .post-frame { width: 314px; height: auto; }
+
+    .footer { height: 120px; padding-top: 10px }
+    .footer .topline{ display: none }
+	.ads_div { display: none; }
+	#follow_me_header { display: none; }
+    .rss_subscribe { display: none; }
+	.follow_me_twitter { display: none; }    
+	.fb_like_box { display: none; }
+	.pagination { margin-right: 0px; }
+	.supportURL { top: 100px; }
+	.supportText { font-size: 18px; top: 24px; }
+	.twitter-follow-button { display: none; }
+}
+
+@media only screen and (min-width: 1000px) {
+    #container { margin: 0px !important }
+}
+
+@media only screen and (max-width: 1000px) {
+    body { overflow: hidden }
+
+    .content>div>.menu { display: none }
+    .categories .android_link, .categories .iphone_link, .categories .ipad_link { display: inline-block }
+    .categories .recent { display: block }
+
+    .categories {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        margin: 0px;
+        width: 264px;
+        padding: 8px;
+        background-color: #464646;
+        box-shadow: none;
+    }
+    .categories .search {
+        margin: 0px;
+        display: block;
+    }
+    .categories ul {
+        margin: 140px 7px 0px 7px;
+        column-count: 1;
+        width: 150px; 
+        -moz-column-count: 1;
+        -webkit-column-count: 1
+    }
+    .categories ul a {
+        font-size: 18px;
+        color: #fff
+    }
+
+    .categories ul li.active a {
+        color: #55b8f6;
+    }
+
+    .categories ul a:hover {
+        background: none;
+        color: #55b8f6;
+    }
+}
+
+</style>
+
+<link rel="alternate" href="android-app://com.tumblr/tumblr/x-callback-url/blog?blogName=androidinspiredui" />
+<link rel="alternate" href="ios-app://305343404/tumblr/x-callback-url/blog?blogName=androidinspiredui" />
+<script src="http://assets.tumblr.com/assets/scripts/tumblelog_post_message_queue.js?_v=cf140c0f1704d59bad98d3be7adddfde"></script>
+
+<meta name="keywords" content="hue,app hue,weather,details,sidebars" />
+<!-- TWITTER TAGS --><meta charset="utf-8"><meta name="twitter:site" content="tumblr" /><meta name="twitter:card" content="app" /><meta name="twitter:description" content="androidinspiredui" /><meta name="twitter:title" content="androidinspiredui" /><meta name="twitter:app:name:iphone" content="Tumblr" /><meta name="twitter:app:name:ipad" content="Tumblr" /><meta name="twitter:app:name:googleplay" content="Tumblr" /><meta name="twitter:app:id:iphone" content="305343404" /><meta name="twitter:app:id:ipad" content="305343404" /><meta name="twitter:app:id:googleplay" content="com.tumblr" /><meta name="twitter:app:url:iphone" content="tumblr://x-callback-url/blog?blogName=androidinspiredui&amp;referrer=twitter-cards" /><meta name="twitter:app:url:ipad" content="tumblr://x-callback-url/blog?blogName=androidinspiredui&amp;referrer=twitter-cards" /><meta name="twitter:app:url:googleplay" content="tumblr://x-callback-url/blog?blogName=androidinspiredui&amp;referrer=twitter-cards" />
+
+<!-- GOOGLE CAROUSEL --><script type="application/ld+json">{"@type":"ItemList","url":"http:\/\/android.inspired-ui.com\/tagged\/app+hue","itemListElement":[{"@type":"ListItem","position":1,"url":"http:\/\/android.inspired-ui.com\/post\/67646500713\/hue"},{"@type":"ListItem","position":2,"url":"http:\/\/android.inspired-ui.com\/post\/67646416524\/hue"},{"@type":"ListItem","position":3,"url":"http:\/\/android.inspired-ui.com\/post\/67645749849\/hue"},{"@type":"ListItem","position":4,"url":"http:\/\/android.inspired-ui.com\/post\/67645735408\/hue"},{"@type":"ListItem","position":5,"url":"http:\/\/android.inspired-ui.com\/post\/67645712193\/hue"}],"@context":"http:\/\/schema.org"}</script>
+<link rel="canonical" href="http://android.inspired-ui.com/tagged/app+hue" />
+
+</head>
+<body>
+
+<!-- Facebook Recomment Button -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- End of Facebook Recomment Button-->
+
+<script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+
+<div id="container" onclick="hideCategories(event)">
+    <header class="header">
+        <div>
+            <div class="menubtn" onclick="showCategories(event)">Menu</div>
+            <a href="/"><img src="http://static.tumblr.com/h5bxecc/gRcmloalm/logo.png" alt="Inspired UI"/></a>
+                <h1 class="h1_logo">Mobile Apps </br>Design Patterns [Android]</h1>
+            <form class="search" method="get" id="mobile-search-form" action="/search">
+                <img src="http://static.tumblr.com/h5bxecc/b5wmlrb7i/search.png" alt=""/>
+                <input class="search-text placeholder" type="text" name="q" placeholder="Search" value="">
+            </form>
+        </div>
+    </header>
+    
+     <div class="support">
+    <span class="supportText">Hand-picked news: <a class="supportURL" target="_blank" href="http://bit.ly/insprdtwtr">Designing the new Foursquare</a></span>
+                <div class="supportFollow"><a href="https://twitter.com/inspiredui" class="twitter-follow-button" data-show-count="true" data-size="small">Follow @InspiredUI</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                </div>
+    </div>
+
+    <div class="content">
+        <div>
+            <div class="menu">
+                <a href="http://android.inspired-ui.com" class="android_link active">
+                    <div></div>
+                    Android
+                </a>
+                <a href="http://ipad.inspired-ui.com" class="ipad_link">
+                    <div></div>
+                    iPad
+                </a>
+                <a href="http://inspired-ui.com/" class="iphone_link">
+                    <div></div>
+                    iPhone
+                </a>
+                <a href="/">RECENT</a>
+                <a onclick="showCategories(event)">CATEGORIES<img src="http://static.tumblr.com/h5bxecc/kuCmloam2/expand.png" alt=""/></a>
+            </div>
+            <nav class="categories" onclick="event.stopPropagation()">
+                <form class="search" method="get" id="mobile-search-form" action="/search">
+                    <img src="http://static.tumblr.com/h5bxecc/b5wmlrb7i/search.png" alt=""/>
+                    <input class="search-text placeholder" type="text" name="q" placeholder="Search" value="">
+                    <a href="http://inspired-ui.com/" class="iphone_link">
+                        <div></div>
+                        iPhone
+                    </a>&nbsp;
+                    <a href="http://ipad.inspired-ui.com/" class="ipad_link">
+                        <div></div>
+                        iPad
+                    </a>&nbsp;
+                    <a href="http://android.inspired-ui.com" class="android_link active">
+                        <div></div>
+                        Android
+                    </a>
+                </form>
+                <ul id="tags">
+                    <li class="recent"><a href="/">Recent</a></li>
+                    <li><a href="/tagged/activity">Activity Feeds</a></li>
+                    <li><a href="/tagged/articles">Articles</a></li>
+
+
+					<li><a href="/tagged/calendars">Calendars</a></li>
+                    <li><a href="/tagged/coach_marks">Coach Marks</a></li>
+                    <li><a href="/tagged/comments">Comments</a></li>
+                    <li><a href="/tagged/compose">Compose</a></li>
+                    <li><a href="/tagged/details">Details</a></li>
+					<li><a href="/tagged/dialogs">Dialogs</a></li>
+					<li><a href="/tagged/dropdowns">Dropdowns</a></li>
+                    <li><a href="/tagged/empty_data_sets">Empty Data</a></li>
+                    <li><a href="/tagged/find_friends">Find Friends</a></li>
+					<li><a href="/tagged/galleries">Galleries</a></li>
+                    <li><a href="/tagged/lists">Lists</a></li>
+                    <li><a href="/tagged/logins">Logins</a></li>
+                    <li><a href="/tagged/maps">Maps</a></li>
+					<li><a href="/tagged/menus">Menus</a></li>
+                    <li><a href="/tagged/navigation">Navigations</a></li>
+                    <li><a href="/tagged/notifications">Notifications</a></li>
+                    <li><a href="/tagged/popovers">Popovers</a></li>
+                    <li><a href="/tagged/profiles">Profiles</a></li>
+                    <li><a href="/tagged/search">Search</a></li>
+                    <li><a href="/tagged/settings">Settings</a></li>
+					<li><a href="/tagged/sidebars">Sidebars</a></li>
+                    <li><a href="/tagged/signup">Sign Up</a></li>
+                    <li><a href="/tagged/stats">Stats</a></li>
+                    <li><a href="/tagged/venue">Venue Details</a></li>
+
+
+                    <li><a href="/tagged/walkthroughs">Walkthroughs</a></li>
+                </ul>
+            </nav>			
+            <section class="posts">
+				<div class="app_name" style="display: none; font-size: 14px; margin-top: -20px; margin-bottom: 15px;">
+					<span style="font-weight: bold">Google Play link: </span>
+					<a class="app_name_link" href="#ituneslink">iTunes</a>
+				</div>
+				
+                
+                
+                <div class="post">
+                    <div class="post-frame">
+                        <a class="show-all" href="#show-all"><img id="post-img" src="http://66.media.tumblr.com/4a813504240b43f0cc8a0145d3bfa655/tumblr_mwlw3l3Lqq1snfpwco1_400.png" alt="Hue"></a>
+                        <span class="tags">hue|app hue|weather|</span>
+                    </div>
+                    <div class="post-info">
+                        <div class="logo"></div>
+                        <a class="show-all" href="#show-all" title="See all images for that application">Hue</a>
+                        <div class="caption" style="display: none;"><p><a href="http://t.umblr.com/redirect?z=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.samruston.hue%26hl%3Den&amp;t=NGI3NDVhZjUyN2VkMDFlMzEyMTUxOGMwNjA1NGMxODhhNzAyODg0ZCxzdktkS1Z3cw%3D%3D&amp;b=t%3AqhExaetIv18xEVRxQ0J3kg&amp;m=1">Hue</a></p></div>
+                        <span class="tags">hue|app hue|weather|</span>
+                    </div>
+                </div>
+                
+                
+                
+                <div class="post">
+                    <div class="post-frame">
+                        <a class="show-all" href="#show-all"><img id="post-img" src="http://68.media.tumblr.com/7038051d84918dd65c61f002bd430049/tumblr_mwlvz6qI2W1snfpwco1_400.png" alt="Hue"></a>
+                        <span class="tags">hue|app hue|details|weather|</span>
+                    </div>
+                    <div class="post-info">
+                        <div class="logo"></div>
+                        <a class="show-all" href="#show-all" title="See all images for that application">Hue</a>
+                        <div class="caption" style="display: none;"><p><a href="http://t.umblr.com/redirect?z=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.samruston.hue%26hl%3Den&amp;t=NzI0MmJmMzEzZWIzMTQ3YjA4ZWViZjExNzQ5ZjIyMmRmODEzMzEzYSxBOElTMWVtTg%3D%3D&amp;b=t%3AqhExaetIv18xEVRxQ0J3kg&amp;m=1">Hue</a></p></div>
+                        <span class="tags">hue|app hue|details|weather|</span>
+                    </div>
+                </div>
+                
+                
+                
+                <div class="post">
+                    <div class="post-frame">
+                        <a class="show-all" href="#show-all"><img id="post-img" src="http://68.media.tumblr.com/c0c09d622250c6547be3c6c810def96f/tumblr_mwlv1dJIkP1snfpwco1_400.png" alt="Hue"></a>
+                        <span class="tags">hue|app hue|sidebars|</span>
+                    </div>
+                    <div class="post-info">
+                        <div class="logo"></div>
+                        <a class="show-all" href="#show-all" title="See all images for that application">Hue</a>
+                        <div class="caption" style="display: none;"><p><a href="http://t.umblr.com/redirect?z=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.samruston.hue%26hl%3Den&amp;t=ZDBhY2E0ZTk0ZDZjNTA1MmI4NzdhZGY4OTlkOWUxOWZmMWQzMjRkMCwxakpaQlpoYw%3D%3D&amp;b=t%3AqhExaetIv18xEVRxQ0J3kg&amp;m=1">Hue</a></p></div>
+                        <span class="tags">hue|app hue|sidebars|</span>
+                    </div>
+                </div>
+                
+                
+                
+                <div class="post">
+                    <div class="post-frame">
+                        <a class="show-all" href="#show-all"><img id="post-img" src="http://67.media.tumblr.com/91ec0a9bec6af24ada5abb754bd1cbae/tumblr_mwlv0qWfg31snfpwco1_400.png" alt="Hue"></a>
+                        <span class="tags">hue|app hue|details|weather|</span>
+                    </div>
+                    <div class="post-info">
+                        <div class="logo"></div>
+                        <a class="show-all" href="#show-all" title="See all images for that application">Hue</a>
+                        <div class="caption" style="display: none;"><p><a href="http://t.umblr.com/redirect?z=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.samruston.hue%26hl%3Den&amp;t=M2FjNTVmNjQ4MzE1ZTE1YWU3NzI5YzAyOGM0ZTlkYzI4MmM3YjBkYiw2WFU2Q2JRYw%3D%3D&amp;b=t%3AqhExaetIv18xEVRxQ0J3kg&amp;m=1">Hue</a></p></div>
+                        <span class="tags">hue|app hue|details|weather|</span>
+                    </div>
+                </div>
+                
+                
+                
+                <div class="post">
+                    <div class="post-frame">
+                        <a class="show-all" href="#show-all"><img id="post-img" src="http://68.media.tumblr.com/021ddce8b64c410b2160524358c42ca9/tumblr_mwluzjbmkk1snfpwco1_400.png" alt="Hue"></a>
+                        <span class="tags">hue|app hue|widgets|</span>
+                    </div>
+                    <div class="post-info">
+                        <div class="logo"></div>
+                        <a class="show-all" href="#show-all" title="See all images for that application">Hue</a>
+                        <div class="caption" style="display: none;"><p><a href="http://t.umblr.com/redirect?z=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.samruston.hue%26hl%3Den&amp;t=NGNlYTJiNjcxMGYzZWI4ZjllM2Y1ZDBiZDIzODAyMjc0YmRiZGU1OSxNRHJseFdoZQ%3D%3D&amp;b=t%3AqhExaetIv18xEVRxQ0J3kg&amp;m=1">Hue</a></p></div>
+                        <span class="tags">hue|app hue|widgets|</span>
+                    </div>
+                </div>
+                
+                
+            </section>
+            
+        </div>
+        <aside>
+            <div class="ads_div">
+                <!-- AdPacks Zone Code -->
+                <script type="text/javascript" src="http://cdn.adpacks.com/adpacks.js?legacyid=1272191&zoneid=1409&key=8e5216f32ee94ec078fbee57c8dd104d&serve=C6SIVKE&placement=inspireduicom&circle=ux" id="_adpacks_js"></script>
+                <!-- End AdPacks Zone Code -->
+            </div>
+			<div class="fb_like_box">
+				<div class="fb-like-box" data-href="http://www.facebook.com/inspiredui" data-width="237" data-height="240"  data-show-faces="true" data-stream="false" data-header="false" style="background-color: white;"></div>
+            </div>
+        </aside>
+    </div>
+    <footer class="footer">
+        <div class="copyright">Copyright &copy; 2011-2013, <a href="http://twitter.com/pakhandrin" title="Sergey Pakhandrin" style="color: #a8a8a8" target="_blank">Sergey Pakhandrin</a>. All rights reserved.</div>
+        <a class="mailto" href="mailto:hello@inspired-ui.com">
+            <img src="http://static.tumblr.com/h5bxecc/g8dmloao7/mailto.png" alt=""/>Say hello@inspired-ui.com
+        </a>
+        <div class="design">Design by <a href="http://dribbble.com/paulart" title="Pavel Nakonechniy" target="_blank">Paulart</a></div>
+    </footer>
+</div>
+<script type="text/javascript">
+    $(function () {
+        var $icons = $('header .header-icons div');
+        var $icon_links = $('header .header-icons a').each(function (index) {
+            $(this).data('icon-element', $icons.eq(index));
+        });
+
+        // Header icons slide animation
+        $icon_links.hover(
+                function () {
+                    $(this).data('icon-element').animate({ marginTop: '-=7' }, 200);
+                },
+                function () {
+                    $(this).data('icon-element').animate({ marginTop: '+=7' }, 200);
+                }
+        );
+
+        // Select current tag
+        var tagName = /^\/tagged\/([^/]+)(\/|$)/i.exec(window.location.pathname);
+        if (tagName) {
+            tagName = tagName[1];
+            tagName = tagName.replace(/\+/g, '_');
+            $('#tags>li>a[href^="/tagged/' + tagName + '"]').parent().addClass('active');
+            $('.menu a:eq(1)').addClass('active');
+        }
+        else $('.menu a:eq(3)').addClass('active');
+
+        $('span.tags').each(function () {
+            var $this = $(this);
+            var tags = $this.text().toLowerCase().split('|');
+
+            // Process application tag
+            $.each(tags, function(index, tag) {
+                if (/^app (.*)$/i.test(tag)) {
+                    var app = /^app (.*)$/i.exec(tag)[1];
+                    if ($.inArray(app, tags)) {
+                        tag = app;
+                    }
+                    tag = tag.toLowerCase();
+                    tag = tag.replace(/ /g, "_");
+
+                    // Check not on the "Show all" page
+                    if (window.location.pathname.toLowerCase().indexOf('/tagged/' + tag) == -1) {
+                        $('a.show-all', $this.parent())
+                                .attr('href', '/tagged/' + tag.replace(/ /, '_'))
+                                .show();
+                    }
+					else {
+						$('div.app_name').show();
+						$('a.app_name_link')
+							.attr('href', $('.caption a').attr('href'))
+							.text($('.caption a:first').text());
+					}
+                }
+            });
+
+        });
+    });
+</script>
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-27235580-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+<iframe scrolling="no" width="1" height="1" frameborder="0" style="background-color:transparent; overflow:hidden; position:absolute; top:0; left:0; z-index:9999;" id="ga_target"></iframe><script type="text/javascript">
+    (function(){
+        var analytics_frame = document.getElementById('ga_target');
+        var analytics_iframe_loaded;
+        var user_logged_in;
+        var blog_is_nsfw = 'No';
+        var addthis_enabled = false;
+
+        var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+        var eventer = window[eventMethod];
+        var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+        eventer(messageEvent,function(e) {
+            var message = (e.data && e.data.split) ? e.data.split(';') : '';
+            switch (message[0]) {
+                case 'analytics_iframe_loaded':
+                    analytics_iframe_loaded = true;
+                    postCSMessage();
+                    postGAMessage();
+                    postATMessage();
+                    postRapidMessage();
+                    break;
+                case 'user_logged_in':
+                    user_logged_in = message[1];
+                    postGAMessage();
+                    postATMessage();
+                    break;
+            }
+        }, false);
+
+        analytics_frame.src = "https://assets.tumblr.com/analytics.html?6e0fdc56f5c8cc16ff619972cbbaf1a2#" +
+                              "http://android.inspired-ui.com";
+        function postGAMessage() {
+            if (analytics_iframe_loaded && user_logged_in) {
+                var is_ajax = false;
+                analytics_frame.contentWindow.postMessage(['tick_google_analytics', is_ajax, user_logged_in, blog_is_nsfw, '/tagged/app_hue?route=%2Ftagged%2F%3Atag'].join(';'), analytics_frame.src.split('/analytics.html')[0]);
+            }
+        }
+        function postCSMessage() {
+            COMSCORE = true;
+            analytics_frame.contentWindow.postMessage('enable_comscore;' + window.location, analytics_frame.src.split('/analytics.html')[0]);
+        }
+        function postATMessage() {
+            if (addthis_enabled && analytics_iframe_loaded) {
+                analytics_frame.contentWindow.postMessage('enable_addthis', analytics_frame.src.split('/analytics.html')[0]);
+            }
+        }
+        function postRapidMessage() {
+                            if (analytics_iframe_loaded) {
+                    var is_ajax = '';
+                    var route = '/tagged/:tag';
+                    var tumblelog_id = '101893765';
+                    var yahoo_space_id = '1197719232';
+                    var rapid_client_only = '1';
+                    var apv = '1';
+                    var rapid_ex = '';
+
+                    analytics_frame.contentWindow.postMessage(
+                        [
+                            'tick_rapid', is_ajax, route, user_logged_in, tumblelog_id,
+                            yahoo_space_id, rapid_client_only, apv, rapid_ex
+                        ].join(';'),
+                        analytics_frame.src.split('/analytics.html')[0]
+                    );
+                }
+                    }
+    })();
+</script><script type="text/javascript">!function(s){s.src='https://px.srvcs.tumblr.com/impixu?T=1476987484&J=eyJ0eXBlIjoidXJsIiwidXJsIjoiaHR0cDpcL1wvYW5kcm9pZC5pbnNwaXJlZC11aS5jb21cL3RhZ2dlZFwvYXBwX2h1ZSIsInJlcXR5cGUiOjAsInJvdXRlIjoiXC90YWdnZWRcLzp0YWcifQ==&U=ECMBFFEFNK&K=e833417a8189af7608769dda15251adc9c39f3f2062305b3cab3592b4ed16a3c&R=http%3A%2F%2Fandroid.inspired-ui.com%2Ftagged%2Fapp_hue'.replace(/&R=[^&$]*/,'').concat('&R='+escape(document.referrer)).slice(0,2000).replace(/%.?.?$/,'');}(new Image());</script><noscript><img style="position:absolute;z-index:-3334;top:0px;left:0px;visibility:hidden;" src="https://px.srvcs.tumblr.com/impixu?T=1476987484&J=eyJ0eXBlIjoidXJsIiwidXJsIjoiaHR0cDpcL1wvYW5kcm9pZC5pbnNwaXJlZC11aS5jb21cL3RhZ2dlZFwvYXBwX2h1ZSIsInJlcXR5cGUiOjAsInJvdXRlIjoiXC90YWdnZWRcLzp0YWciLCJub3NjcmlwdCI6MX0=&U=ECMBFFEFNK&K=3da9abedfbe2ea9cbcdb95120c7de14bca68aefc1f32125853d2db89dcb77ced&R=http%3A%2F%2Fandroid.inspired-ui.com%2Ftagged%2Fapp_hue"></noscript><script >
+        (function (w,d) {
+            'use strict';
+            var l = function(el, type, listener, useCapture) {
+                el.addEventListener ?
+                el.addEventListener(type, listener, !!useCapture) :
+                el.attachEvent && el.attachEvent('on' + type, listener, !!useCapture);
+            };
+            var a = function () {
+                                if (d.getElementById('tumblr-cdx')) {
+                    return;
+                }
+                var s = d.createElement('script');
+                var el = d.getElementsByTagName('script')[0];
+                s.async = true;
+                s.src = 'http://assets.tumblr.com/assets/scripts/vendor/cedexis/cedexis.radar.js?_v=10347cfdbf1a0b22785f026ebcb63e21';
+                s.type = 'text/javascript';
+                s.id = 'tumblr-cdx';
+                d.body.appendChild(s);
+            };
+            l(w,'load',a);
+        }(window, document));
+</script><script type="text/javascript">!function(s){s.src='https://px.srvcs.tumblr.com/impixu?T=1476987484&J=eyJ0eXBlIjoicG9zdCIsInVybCI6Imh0dHA6XC9cL2FuZHJvaWQuaW5zcGlyZWQtdWkuY29tXC90YWdnZWRcL2FwcF9odWUiLCJyZXF0eXBlIjowLCJyb3V0ZSI6IlwvdGFnZ2VkXC86dGFnIiwicG9zdHMiOlt7InBvc3RpZCI6IjY3NjQ2NTAwNzEzIiwiYmxvZ2lkIjoiMTAxODkzNzY1Iiwic291cmNlIjozM30seyJwb3N0aWQiOiI2NzY0NjQxNjUyNCIsImJsb2dpZCI6IjEwMTg5Mzc2NSIsInNvdXJjZSI6MzN9LHsicG9zdGlkIjoiNjc2NDU3NDk4NDkiLCJibG9naWQiOiIxMDE4OTM3NjUiLCJzb3VyY2UiOjMzfSx7InBvc3RpZCI6IjY3NjQ1NzM1NDA4IiwiYmxvZ2lkIjoiMTAxODkzNzY1Iiwic291cmNlIjozM30seyJwb3N0aWQiOiI2NzY0NTcxMjE5MyIsImJsb2dpZCI6IjEwMTg5Mzc2NSIsInNvdXJjZSI6MzN9XX0=&U=NPMEHKAGCB&K=3978edf42f9b450027da26f83718b1dddc2c3cfb7dfe5ade4c83ee0c20dbe76d&R=http%3A%2F%2Fandroid.inspired-ui.com%2Ftagged%2Fapp_hue'.replace(/&R=[^&$]*/,'').concat('&R='+escape(document.referrer)).slice(0,2000).replace(/%.?.?$/,'');}(new Image());</script><noscript><img style="position:absolute;z-index:-3334;top:0px;left:0px;visibility:hidden;" src="https://px.srvcs.tumblr.com/impixu?T=1476987484&J=eyJ0eXBlIjoicG9zdCIsInVybCI6Imh0dHA6XC9cL2FuZHJvaWQuaW5zcGlyZWQtdWkuY29tXC90YWdnZWRcL2FwcF9odWUiLCJyZXF0eXBlIjowLCJyb3V0ZSI6IlwvdGFnZ2VkXC86dGFnIiwicG9zdHMiOlt7InBvc3RpZCI6IjY3NjQ2NTAwNzEzIiwiYmxvZ2lkIjoiMTAxODkzNzY1Iiwic291cmNlIjozM30seyJwb3N0aWQiOiI2NzY0NjQxNjUyNCIsImJsb2dpZCI6IjEwMTg5Mzc2NSIsInNvdXJjZSI6MzN9LHsicG9zdGlkIjoiNjc2NDU3NDk4NDkiLCJibG9naWQiOiIxMDE4OTM3NjUiLCJzb3VyY2UiOjMzfSx7InBvc3RpZCI6IjY3NjQ1NzM1NDA4IiwiYmxvZ2lkIjoiMTAxODkzNzY1Iiwic291cmNlIjozM30seyJwb3N0aWQiOiI2NzY0NTcxMjE5MyIsImJsb2dpZCI6IjEwMTg5Mzc2NSIsInNvdXJjZSI6MzN9XSwibm9zY3JpcHQiOjF9&U=NPMEHKAGCB&K=fde38ebf74103dce57a511a461e251b77bd7437d2fde37bd3fdf35887962942a&R=http%3A%2F%2Fandroid.inspired-ui.com%2Ftagged%2Fapp_hue"></noscript>
+<noscript id="bootloader" data-bootstrap="{&quot;Components&quot;:{&quot;PostActivity&quot;:[],&quot;TumblelogIframe&quot;:{&quot;unified&quot;:false,&quot;variant&quot;:null,&quot;tumblelogBundleSrc&quot;:&quot;http:\/\/assets.tumblr.com\/client\/prod\/standalone\/tumblelog\/index.build.js?_v=bf1328c916412a987af9408bf45d33fc&quot;,&quot;tumblelogName&quot;:&quot;androidinspiredui&quot;,&quot;isLoggedIn&quot;:false,&quot;isFriend&quot;:false,&quot;formKey&quot;:&quot;&quot;,&quot;canSubscribe&quot;:false,&quot;isSubscribed&quot;:false,&quot;tumblelogTitle&quot;:&quot;Inspired UI&quot;,&quot;tumblelogAvatar&quot;:&quot;http:\/\/66.media.tumblr.com\/avatar_c79d21283a6a_40.png&quot;,&quot;tumblelogHost&quot;:&quot;http:\/\/android.inspired-ui.com&quot;,&quot;isOptica&quot;:false,&quot;isCustomTheme&quot;:true,&quot;themeHeaderImage&quot;:&quot;https:\/\/assets.tumblr.com\/images\/default_header\/optica_pattern_02.png?_v=b976ee00195b1b7806c94ae285ca46a7&quot;,&quot;themeBackgroundColor&quot;:&quot;#F6F6F6&quot;,&quot;themeTitleColor&quot;:&quot;#444444&quot;,&quot;themeAccentColor&quot;:&quot;#529ECC&quot;,&quot;brag&quot;:false,&quot;showLrecAds&quot;:false,&quot;showGeminiAds&quot;:false,&quot;geminiSectionCodeDesktop&quot;:&quot;a10bca9c-0c5d-4a02-ab13-14ab8513d81d&quot;,&quot;geminiSectionCodeMobile&quot;:&quot;ced63809-b609-4aca-96a0-abc099acba6b&quot;,&quot;currentPageType&quot;:&quot;tagged&quot;,&quot;currentPage&quot;:&quot;1&quot;,&quot;searchQuery&quot;:&quot;&quot;,&quot;tag&quot;:&quot;app_hue&quot;,&quot;query&quot;:&quot;&quot;,&quot;chrono&quot;:false,&quot;postId&quot;:&quot;&quot;,&quot;src&quot;:&quot;http:\/\/android.inspired-ui.com\/tagged\/app_hue&quot;,&quot;postUrl&quot;:&quot;&quot;,&quot;isBlocked&quot;:null,&quot;isAdmin&quot;:false,&quot;lookupButtonUrl&quot;:&quot;&quot;,&quot;showSpamButton&quot;:false,&quot;showRootPostButton&quot;:false,&quot;rootPostUrl&quot;:&quot;&quot;,&quot;showRadarPostButton&quot;:false,&quot;radarKeys&quot;:&quot;&quot;,&quot;isUniblocked&quot;:false,&quot;isNsfw&quot;:false,&quot;isAdult&quot;:false,&quot;isSpam&quot;:false,&quot;isPrimaryBlog&quot;:false,&quot;canEdit&quot;:false,&quot;canReblogSelf&quot;:false,&quot;showLikeButton&quot;:false,&quot;showReblogButton&quot;:false,&quot;reblogUrl&quot;:&quot;&quot;,&quot;showFanMailButton&quot;:false,&quot;showMessagingButton&quot;:false,&quot;loginCheckIframeSrc&quot;:&quot;http:\/\/assets.tumblr.com\/assets\/html\/iframe\/login_check.html?_v=6a1c5afca919a959f36db36d6487981f&quot;,&quot;appInstallUrl&quot;:&quot;https:\/\/go.onelink.me\/893408789?pid=tumblr_blog_network\u0026c=tumblr_blog_network\u0026af_sub3=blog_name&quot;}},&quot;Flags&quot;:{&quot;doods&quot;:&quot;eyJmaWx0ZXJfbnNmdyI6dHJ1ZSwia2V5Y29tbWFuZF9hdXRvX3BhZ2luYXRlIjp0cnVlLCJsb2dnZWRfb3V0X3NlYXJjaCI6dHJ1ZSwiYXJjaGl2ZS1wbHVzIjp0cnVlLCJzZWN1cmVfZm9ybV9rZXkiOnRydWUsInNlY3VyZV9mb3JtX2tleV9mdWxseV9vbiI6dHJ1ZSwidHVtYmxlbG9nX3BvcG92ZXIiOnRydWUsImNhbm9uaWNhbF91cmxfd3JpdGVzIjp0cnVlLCJlbmFibGVfY2FwdHVyZV9qcyI6dHJ1ZSwicHJpbWFfcG9zdF9mb3JtcyI6dHJ1ZSwibG9ja2VkX3JlYmxvZ191aSI6dHJ1ZSwibG9ja2VkX3JlYmxvZ191aV9wYXJzZV90ZXN0Ijp0cnVlLCJ0YWJsZXRfYmFubmVyX2FjdGl2ZSI6dHJ1ZSwibW9iaWxlX2Jhbm5lcl9hY3RpdmUiOnRydWUsImxvZ19zZWFyY2hfYm94Ijp0cnVlLCJ1c2VyX21lbnRpb25zIjp0cnVlLCJodG1sNV9hdWRpb19wbGF5ZXIiOnRydWUsInBvcG92ZXJfcmVjb21tZW5kYXRpb25zIjp0cnVlLCJpbmRhc2hfcmVjb21tZW5kYXRpb25zIjp0cnVlLCJwb3B0aWNhX3R1bWJsZWxvZ19wb3BvdmVycyI6dHJ1ZSwidHVtYmxyX3R2Ijp0cnVlLCJkZXByZWNhdGVfZmVhdHVyZWRfdGFncyI6dHJ1ZSwicmVibG9nX3VpX3JlZnJlc2giOnRydWUsInRhYl9zd2l0Y2hlciI6dHJ1ZSwiZmFzdF9jb21wb3NlIjp0cnVlLCJkYXNoYm9hcmRfcmVmcmVzaCI6dHJ1ZSwibW9iaWxlX3dlYl9waG90b3NldHMiOnRydWUsIm1vYmlsZV93ZWJfZ2F0ZSI6dHJ1ZSwibW9iaWxlX3dlYl9wYWdlX3RpdGxlcyI6dHJ1ZSwibW9iaWxlX3dlYl9hYnVzZV9mb3JtIjp0cnVlLCJkb250X2Nhc3RfanNfZm9sbG93cyI6dHJ1ZSwiYWRzX25ld192ZW5kb3JfYnV0dG9ucyI6dHJ1ZSwiYmxvY2tfZmVhdHVyZSI6dHJ1ZSwicmVhY3RpdmF0aW9uX2Zsb3ciOnRydWUsImd1bHBqc19hZG1pbiI6dHJ1ZSwiZW5hYmxlX2pzX2VwaGVtZXJhbF9sb2ciOnRydWUsImxvZ19sYWR5Ijp0cnVlLCJjc2xvZ2dlcl9qcyI6dHJ1ZSwiZGlzY292ZXJ5X2h1Yl9hY2Nlc3MiOnRydWUsImhlYWRlcl9hY2NvdW50X21lbnUiOnRydWUsImVuYWJsZV9zaGFyZV9lbWJlZF9jb2RlIjp0cnVlLCJwaW50ZXJlc3Rfc2hhcmluZyI6dHJ1ZSwicmVkZGl0X3NoYXJpbmciOnRydWUsInBvc3RfaXRfZm9yd2FyZCI6dHJ1ZSwicGVlcHJfc2VhcmNoX2FuZF9maWx0ZXIiOnRydWUsImludGVybnNfcGFnZSI6dHJ1ZSwiZm9sbG93ZWRfc2VhcmNoZXNfYmlnX3dlYiI6dHJ1ZSwiZGlzYWJsZV9wdWJsaWNfcmVwbGllcyI6dHJ1ZSwibmV3X3JlcGxpZXMiOnRydWUsInJlcGxpZXNfbW9kZXJhdGlvbiI6dHJ1ZSwibGl2ZXBob3Rvc193ZWIiOnRydWUsImRpc2FibGVfeWFob29fYl9jb29raWUiOnRydWUsImxpdmVwaG90b3MiOnRydWV9&quot;},&quot;Context&quot;:{&quot;name&quot;:&quot;default&quot;,&quot;time&quot;:1476987484000,&quot;userinfo&quot;:{&quot;primary&quot;:&quot;&quot;,&quot;name&quot;:&quot;&quot;,&quot;channels&quot;:[]},&quot;hosts&quot;:{&quot;assets_host&quot;:&quot;http:\/\/assets.tumblr.com&quot;,&quot;secure_assets_host&quot;:&quot;https:\/\/assets.tumblr.com&quot;,&quot;www_host&quot;:&quot;http:\/\/www.tumblr.com&quot;,&quot;secure_www_host&quot;:&quot;https:\/\/www.tumblr.com&quot;,&quot;embed_host&quot;:&quot;https:\/\/embed.tumblr.com&quot;,&quot;safe_host&quot;:&quot;http:\/\/safe.txmblr.com&quot;,&quot;platform_host&quot;:&quot;http:\/\/platform.tumblr.com&quot;},&quot;language&quot;:&quot;en_US&quot;,&quot;language_simple&quot;:&quot;en&quot;,&quot;assets&quot;:&quot;http:\/\/assets.tumblr.com\/client\/prod\/&quot;},&quot;Translations&quot;:{&quot;%1$sReport %2$s&#039;s post?%3$sIf it violates our community guidelines, we&#039;ll remove it.%4$s&quot;:&quot;%1$sReport %2$s&#039;s reblog?%3$sIf it violates our community guidelines, we&#039;ll remove it.%4$s&quot;,&quot;%1$sReport %2$s&#039;s reply?%3$sIf it violates our community guidelines, we&#039;ll remove it.%4$s&quot;:&quot;%1$sReport %2$s&#039;s reblog?%3$sIf it violates our community guidelines, we&#039;ll remove it.%4$s&quot;}}"></noscript>
+<script src="http://assets.tumblr.com/client/prod/standalone/tumblelog/index.build.js?_v=bf1328c916412a987af9408bf45d33fc"></script>
+
+</body>
+</html>
