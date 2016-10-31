@@ -21,18 +21,21 @@
         android:layout_marginTop="44dp"
         android:id="@+id/btnLocation"/>
 
-    <Button
-        android:text="Add Location"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btnLocation"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="53dp"
-        android:id="@+id/btnAdd"/>
+        android:id="@+id/txtCity"
+        android:hint="Enter City, St"/>
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <Button
+        android:text="Get Weather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnAdd"
+        android:layout_below="@+id/txtCity"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/btnAdd"/>
+        android:layout_marginTop="15dp"/>
+
 </RelativeLayout>

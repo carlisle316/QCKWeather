@@ -79,7 +79,7 @@
 
         <ImageView
             android:layout_height="100dp"
-            app:srcCompat="@drawable/wundergroundLogo_4c_horz"
+            app:srcCompat="@drawable/wundergroundlogo_4c_horz"
             android:layout_marginBottom="19dp"
             android:id="@+id/imgWunderground"
             android:layout_width="300dp"
