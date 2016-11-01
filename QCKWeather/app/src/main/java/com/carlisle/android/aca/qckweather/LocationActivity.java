@@ -39,11 +39,6 @@ public class LocationActivity extends AppCompatActivity implements LocationListe
     }
 
     @Override
-    public void onLocationChanged(Location location) {
-        if (mLocationManager != null)
-    }
-
-    @Override
     public void onStatusChanged(String provider, int status, Bundle extras) {
 
     }
