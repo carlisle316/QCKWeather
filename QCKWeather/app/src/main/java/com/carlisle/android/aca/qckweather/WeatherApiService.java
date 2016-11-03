@@ -1,7 +1,9 @@
 package com.carlisle.android.aca.qckweather;
 
-import android.telecom.Call;
 
+import com.carlisle.android.aca.qckweather.model.BaseWeather;
+
+import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
@@ -10,6 +12,7 @@ import retrofit2.http.Query;
  */
 
 public interface WeatherApiService {
-    @GET("data/2.5/weather?APPID=" + Config.OPEN_WEATHER_API_KEY)
-    Call<Weather> getWeather(@Query("q") String location);
+    @GET("data/2.5/weather?APPID=" + Configuration.OPEN_WEATHER_API_KEY + "&units=imperial")
+    Call<BaseWeather> getWeather(@Query("q") String location);
+}
 

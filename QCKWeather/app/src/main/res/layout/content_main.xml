@@ -24,6 +24,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="14dp"
         >
 
         <TextView
@@ -33,7 +35,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="70dp"
             android:id="@+id/txtLocation"
-            />
+            android:textSize="12sp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -43,56 +45,16 @@
             android:layout_marginTop="128dp"
             android:id="@+id/txtTemp"/>
 
-        <TextView
-            android:text="12 Hour Forecast"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="172dp"
-            android:id="@+id/textView9"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="212dp"
-            android:id="@+id/txtHourly"/>
-
-        <TextView
-            android:text="3 Day Forecast"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="204dp"
-            android:id="@+id/textView11"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="164dp"
-            android:id="@+id/txtDaily"/>
-
         <ImageView
-            android:layout_height="100dp"
-            app:srcCompat="@drawable/wundergroundlogo_4c_horz"
-            android:layout_marginBottom="19dp"
-            android:id="@+id/imgWunderground"
-            android:layout_width="300dp"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"/>
-
-        <TextView
-            android:text="Get More From"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView13"
-            android:layout_alignTop="@+id/imgWunderground"
-            android:layout_alignStart="@+id/textView11"/>
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="149dp"
+            android:layout_marginBottom="88dp"
+            android:id="@+id/imgIcon"
+            android:layout_centerHorizontal="true"
+            />
 
 
     </RelativeLayout>

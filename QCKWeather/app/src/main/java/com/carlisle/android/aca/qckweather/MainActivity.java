@@ -9,17 +9,34 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.carlisle.android.aca.qckweather.model.BaseWeather;
+import com.squareup.picasso.Picasso;
+
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private static final String IMG_ADDRESS = "http://openweathermap.org/img/w/";
+
+    BaseWeather mWeather = new BaseWeather();
+
+    TextView txtLocation;
+    TextView txtTemp;
+    ImageView imgIcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +44,10 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        txtLocation = (TextView) findViewById(R.id.txtLocation);
+        txtTemp = (TextView) findViewById(R.id.txtTemp);
+        imgIcon = (ImageView) findViewById(R.id.imgIcon);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -46,27 +67,53 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+        OkHttpClient.Builder builder = new OkHttpClient().newBuilder();
+        builder.addInterceptor(logging);
+
+        OkHttpClient client = builder.build();
+
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Config.OPEN_WEATHER_ENDPOINT)
+                .addConverterFactory(GsonConverterFactory.create())
+                .baseUrl(Configuration.OPEN_WEATHER_ENDPOINT)
+                .client(client)
                 .build();
 
         WeatherApiService service = retrofit.create(WeatherApiService.class);
 
-        Call call = service.getWeather("Atlanta");
-        call.enqueue(new Callback(retrofit) {
+        Call<BaseWeather> call = service.getWeather("Chicago");
+        call.enqueue(new Callback<BaseWeather>() {
             @Override
-            public void onResponse(Call call, Response response) {
+            public void onResponse(Call<BaseWeather> call, Response<BaseWeather> response) {
+                mWeather = response.body();
+                Log.i("Weather: ", mWeather.toString());
 
+                txtLocation.setText(mWeather.getName());
+                txtTemp.setText(mWeather.getMain().getTemp().toString());
+                Picasso.with(getApplicationContext())
+                        .load(IMG_ADDRESS + mWeather.getWeather().get(0).getIcon() + ".png")
+                        .placeholder(R.color.colorAccent)
+                        .into(imgIcon);
             }
 
             @Override
-            public void onFailure(Call call, Throwable t) {
+            public void onFailure(Call<BaseWeather> call, Throwable t) {
 
             }
         });
 
 
+        /*
+        txtLocation.setText(mWeather.getLocation());
+        txtTemp.setText(mWeather.getTemp());
 
+        Picasso.with(this)
+                .load(mWeather.getIcon())
+                .placeholder(R.color.colorAccent)
+                .into(imgIcon);
+                */
     }
 
     @Override
@@ -107,17 +154,11 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_about) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_locations) {
 
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_settings) {
 
         }
 

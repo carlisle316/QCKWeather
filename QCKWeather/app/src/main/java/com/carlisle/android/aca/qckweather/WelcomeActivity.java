@@ -2,9 +2,9 @@ package com.carlisle.android.aca.qckweather;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -16,13 +16,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
-import org.apache.http.conn.ssl.StrictHostnameVerifier;
-
-import butterknife.OnClick;
-
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
-import static com.google.android.gms.common.api.Status.sh;
 
 public class WelcomeActivity extends AppCompatActivity implements View.OnClickListener{
     private EditText txtEmail;
@@ -40,7 +33,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-        if (firebaseAuth.getCurrentUser() !+ null) {
+        if (firebaseAuth.getCurrentUser() != null) {
             finish();
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
         }
@@ -48,9 +41,9 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         txtEmail = (EditText) findViewById(R.id.txtEmail);
         txtPassword = (EditText) findViewById(R.id.txtPassword);
         btnSignup = (Button) findViewById(R.id.btnSignup);
-        txtSignin + (TextView) findViewById(R.id.txtSignin);
+        txtSignin = (TextView) findViewById(R.id.txtSignin);
 
-        progressDialog = new ProgressDialog();
+        progressDialog = new ProgressDialog(this);
 
         btnSignup.setOnClickListener(this);
         txtSignin.setOnClickListener(this);
@@ -83,7 +76,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
                         }
 
                     }
-                })
+                });
     }
 
     @Override
