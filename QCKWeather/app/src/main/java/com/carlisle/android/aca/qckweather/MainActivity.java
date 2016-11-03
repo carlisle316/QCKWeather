@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity
 
             @Override
             public void onFailure(Call<BaseWeather> call, Throwable t) {
-
+                Log.i("Failure: ", "Failure getting data!");
             }
         });
 
