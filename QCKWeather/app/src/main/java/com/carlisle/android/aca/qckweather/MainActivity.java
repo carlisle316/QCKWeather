@@ -1,5 +1,10 @@
 package com.carlisle.android.aca.qckweather;
 
+import android.content.Context;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -28,7 +33,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, LocationListener {
 
     private static final String IMG_ADDRESS = "http://openweathermap.org/img/w/";
 
@@ -37,6 +42,9 @@ public class MainActivity extends AppCompatActivity
     TextView txtLocation;
     TextView txtTemp;
     ImageView imgIcon;
+    LocationManager mLocationManager;
+
+    private String provider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +65,12 @@ public class MainActivity extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });
+
+        mLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+
+        Criteria criteria = new Criteria();
+        provider = mLocationManager.getBestProvider(criteria, false);
+        Location location = mLocationManager.getLastKnownLocation(provider);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -83,7 +97,7 @@ public class MainActivity extends AppCompatActivity
 
         WeatherApiService service = retrofit.create(WeatherApiService.class);
 
-        Call<BaseWeather> call = service.getWeather("Chicago");
+        Call<BaseWeather> call = service.getWeather("Conway");
         call.enqueue(new Callback<BaseWeather>() {
             @Override
             public void onResponse(Call<BaseWeather> call, Response<BaseWeather> response) {
@@ -165,5 +179,25 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String provider) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(String provider) {
+
     }
 }
