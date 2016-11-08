@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity
                 Log.i("Weather: ", mWeather.toString());
 
                 txtLocation.setText(mCityName);
-                txtTemp.setText(mWeather.getMain().getTemp().toString());
+                txtTemp.setText(mWeather.getMain().getTemp().toString() + "°F");
                 Picasso.with(getApplicationContext())
                         .load(IMG_ADDRESS + mWeather.getWeather().get(0).getIcon() + ".png")
                         .placeholder(R.color.colorAccent)
