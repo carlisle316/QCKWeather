@@ -31,7 +31,7 @@
         android:id="@+id/toggleButton"/>
 
     <TextView
-        android:text="Enable GPS"
+        android:text="@string/enable_gps"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/toggleButton"
@@ -40,7 +40,7 @@
         android:id="@+id/textView3"/>
 
     <ToggleButton
-        android:text="ToggleButton"
+        android:text="@string/togglebutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/toggleButton"
@@ -49,7 +49,7 @@
         android:id="@+id/toggleButton2"/>
 
     <TextView
-        android:text="Open on current location"
+        android:text="@string/open_on_current_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView5"

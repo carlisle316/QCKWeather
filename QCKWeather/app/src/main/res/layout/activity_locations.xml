@@ -13,7 +13,7 @@
     android:background="@color/colorPrimary">
 
     <Button
-        android:text="Use Current location"
+        android:text="@string/use_current_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -27,10 +27,10 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:id="@+id/txtCity"
-        android:hint="Enter City, St"/>
+        android:hint="@string/enter_city_st"/>
 
     <Button
-        android:text="Get Weather"
+        android:text="@string/get_weather"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnAdd"

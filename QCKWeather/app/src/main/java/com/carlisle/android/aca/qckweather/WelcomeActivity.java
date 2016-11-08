@@ -27,6 +27,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
     private Button btnSignup;
     private ProgressDialog progressDialog;
     private TextView txtSignin;
+    private static final int MY_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION = 1;
 
     private FirebaseAuth firebaseAuth;
 
@@ -47,7 +48,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
                         new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
                         MY_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION);
             }
-        };
+        }
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -66,6 +67,24 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         btnSignup.setOnClickListener(this);
         txtSignin.setOnClickListener(this);
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode){
+            case MY_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    Intent intent = new Intent(this, WelcomeActivity.class);
+                    startActivity(intent);
+            } else {
+                    Intent i = new Intent(Intent.ACTION_MAIN);
+                    i.addCategory(Intent.CATEGORY_HOME);
+                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(i);
+                }
+            }
+        }
+    }
+
     private void registerUser(){
         String email = txtEmail.getText().toString().trim();
         String password = txtPassword.getText().toString().trim();
