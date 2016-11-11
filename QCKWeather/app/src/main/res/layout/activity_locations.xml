@@ -9,30 +9,19 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.carlisle.android.aca.qckweather.locations"
+    tools:context="com.carlisle.android.aca.qckweather.LocationActivity"
     android:background="@color/colorPrimary">
 
-    <Button
-        android:text="Use Current location"
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="44dp"
-        android:id="@+id/btnLocation"/>
+        android:id="@+id/txtCity"
+        android:text="@string/soon_you_will_be_able_to_sae_a_list_of_your_favorite_locations_check_back_for_updates_thank_you_for_your_patience"
+        android:textSize="36sp"/>
 
-    <Button
-        android:text="Add Location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btnLocation"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="53dp"
-        android:id="@+id/btnAdd"/>
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/btnAdd"/>
+
 </RelativeLayout>

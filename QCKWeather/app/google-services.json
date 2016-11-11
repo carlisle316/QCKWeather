@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "912602260318",
+    "firebase_url": "https://qck-weather.firebaseio.com",
+    "project_id": "qck-weather",
+    "storage_bucket": "qck-weather.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:912602260318:android:81cac2c45dd3b760",
+        "android_client_info": {
+          "package_name": "com.carlisle.android.aca.qckweather"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "912602260318-1lf6458tbr9hg8dti98ciirj18hejke7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSIec_uZf-kPmmQH0YFYrlRKKa2KYZNu8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

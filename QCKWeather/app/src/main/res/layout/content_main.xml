@@ -12,26 +12,62 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.carlisle.android.aca.qckweather.MainActivity"
-    tools:showIn="@layout/app_bar_main">
+    tools:showIn="@layout/app_bar_main"
+    android:background="@color/colorPrimary">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:srcCompat="@drawable/artboard_1hdpi"
-        android:id="@+id/imageView2"
-        android:layout_alignParentTop="true"/>
+        android:id="@+id/imgBackground"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimary"/>
 
-    <LinearLayout
-        android:orientation="vertical"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="14dp"
+        >
 
         <TextView
-            android:text="TextView"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView4"/>
-    </LinearLayout>
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="70dp"
+            android:id="@+id/txtLocation"
+            android:textSize="32sp"
+            android:background="#424242"
+            android:textColor="#ffffff"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="128dp"
+            android:id="@+id/txtTemp"
+            android:textSize="32sp"
+            android:background="#424242"
+            android:textColor="#ffffff"/>
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginBottom="88dp"
+            android:id="@+id/imgIcon"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/frameLayout">
+
+        </FrameLayout>
+
+
+    </RelativeLayout>
 
 </RelativeLayout>
