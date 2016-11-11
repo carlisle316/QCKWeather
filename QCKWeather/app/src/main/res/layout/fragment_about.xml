@@ -1,0 +1,45 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              tools:context="com.carlisle.android.aca.qckweather.AboutFragment"
+              android:orientation="vertical"
+              android:background="#ffffff"
+              android:weightSum="1">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:text="@string/about_this_app"
+        android:layout_width="match_parent"
+        android:layout_height="99dp"
+        android:id="@+id/textView4"
+        android:textSize="48sp"
+        android:textAlignment="center"
+        android:textStyle="normal|bold"/>
+
+    <TextView
+        android:text="@string/thanks_to_sabrina_smith_for_the_awesome_logo_design_find_her_on_linkin"
+        android:layout_width="wrap_content"
+        android:layout_height="107dp"
+        android:id="@+id/textView5"
+        android:textSize="18sp"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:text="@string/weather_information_provided_by_www_openweathermap_org"
+        android:layout_width="match_parent"
+        android:layout_height="108dp"
+        android:id="@+id/textView6"
+        android:textSize="18sp"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:text="@string/this_app_was_produced_with_assistance_from_the_staff_at_the_arkansas_coding_academy"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/textView7"
+        android:textAlignment="center"
+        android:textSize="18sp"/>
+
+</LinearLayout>

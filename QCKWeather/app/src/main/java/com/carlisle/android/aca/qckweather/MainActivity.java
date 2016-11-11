@@ -1,6 +1,7 @@
 package com.carlisle.android.aca.qckweather;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Criteria;
@@ -8,11 +9,12 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -40,15 +42,18 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static com.carlisle.android.aca.qckweather.R.id.txtLocation;
+import static com.carlisle.android.aca.qckweather.R.id.txtTemp;
+
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, LocationListener {
+        implements NavigationView.OnNavigationItemSelectedListener, LocationListener, AboutFragment.OnFragmentInteractionListener {
 
     private static final String IMG_ADDRESS = "http://openweathermap.org/img/w/";
 
     BaseWeather mWeather = new BaseWeather();
 
-    TextView txtLocation;
-    TextView txtTemp;
+    TextView mTxtLocation;
+    TextView mTxtTemp;
     ImageView imgIcon;
     LocationManager mLocationManager;
 
@@ -62,16 +67,16 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        txtLocation = (TextView) findViewById(R.id.txtLocation);
-        txtTemp = (TextView) findViewById(R.id.txtTemp);
+        mTxtLocation = (TextView) findViewById(txtLocation);
+        mTxtTemp = (TextView) findViewById(txtTemp);
         imgIcon = (ImageView) findViewById(R.id.imgIcon);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+               Intent i = new Intent(getApplicationContext(), LocationActivity.class);
+                startActivity(i);
             }
         });
 
@@ -136,8 +141,8 @@ public class MainActivity extends AppCompatActivity
                 mWeather = response.body();
                 Log.i("Weather: ", mWeather.toString());
 
-                txtLocation.setText(mCityName);
-                txtTemp.setText(mWeather.getMain().getTemp().toString() + "°F");
+                mTxtLocation.setText(mCityName);
+                mTxtTemp.setText(mWeather.getMain().getTemp().toString() + "°F");
                 Picasso.with(getApplicationContext())
                         .load(IMG_ADDRESS + mWeather.getWeather().get(0).getIcon() + ".png")
                         .placeholder(R.color.colorAccent)
@@ -221,6 +226,8 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
             return true;
         }
 
@@ -235,9 +242,30 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_about) {
 
+            FragmentManager fm = getSupportFragmentManager();
+            AboutFragment frag = new AboutFragment();
+            fm.beginTransaction()
+                    .add(R.id.frameLayout, frag)
+                    .commit();
+
+            /*
+            android.app.FragmentManager fragmentManager = getFragmentManager();
+            AboutFragment frag = (AboutFragment) fragmentManager.findFragmentById(R.id.frameLayout);
+            if (frag == null){
+                frag = new AboutFragment();
+                fragmentManager.beginTransaction()
+                        .add(R.id.frameLayout, frag)
+                        .commit();
+            }
+            */
+
         } else if (id == R.id.nav_locations) {
+            Intent i = new Intent(this, LocationActivity.class);
+            startActivity(i);
 
         } else if (id == R.id.nav_settings) {
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
 
         }
 
@@ -276,5 +304,10 @@ public class MainActivity extends AppCompatActivity
             mCityName = addresses.get(0).getLocality();
         }
         return mCityName;
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }

@@ -17,11 +17,15 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import static com.carlisle.android.aca.qckweather.R.id.buttonSignin;
+import static com.carlisle.android.aca.qckweather.R.id.txtEnterEmail;
+import static com.carlisle.android.aca.qckweather.R.id.txtEnterPassword;
+
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
-    private Button buttonSignin;
-    private EditText txtEnterEmail;
-    private EditText txtEnterPassword;
-    private TextView textViewSignup;
+    private Button mButtonSignin;
+    private EditText mTxtEnterEmail;
+    private EditText mTxtEnterPassword;
+    private TextView mTextViewSignup;
 
     private FirebaseAuth mFirebaseAuth;
     private ProgressDialog mProgressDialog;
@@ -38,19 +42,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             finish();
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
         }
-        txtEnterEmail = (EditText) findViewById(R.id.txtEnterEmail);
-        txtEnterPassword = (EditText) findViewById(R.id.txtEnterPassword);
-        buttonSignin = (Button) findViewById(R.id.buttonSignin);
-        textViewSignup = (TextView) findViewById(R.id.textViewSignUp);
+        mTxtEnterEmail = (EditText) findViewById(txtEnterEmail);
+        mTxtEnterPassword = (EditText) findViewById(txtEnterPassword);
+        mButtonSignin = (Button) findViewById(buttonSignin);
+        mTextViewSignup = (TextView) findViewById(R.id.textViewSignUp);
 
         mProgressDialog = new ProgressDialog(this);
 
-        buttonSignin.setOnClickListener(this);
-        textViewSignup.setOnClickListener(this);
+        mButtonSignin.setOnClickListener(this);
+        mTextViewSignup.setOnClickListener(this);
     }
     private void userLogin(){
-        String email = txtEnterEmail.getText().toString().trim();
-        String password = txtEnterPassword.getText().toString().trim();
+        String email = mTxtEnterEmail.getText().toString().trim();
+        String password = mTxtEnterPassword.getText().toString().trim();
 
         if (TextUtils.isEmpty(email)){
             Toast.makeText(this, "Please enter email", Toast.LENGTH_LONG).show();
@@ -78,10 +82,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        if (v == buttonSignin){
+        if (v == mButtonSignin){
             userLogin();
         }
-        if (v == textViewSignup){
+        if (v == mTextViewSignup){
             finish();
             startActivity(new Intent(this, WelcomeActivity.class));
         }

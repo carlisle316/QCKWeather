@@ -22,4 +22,16 @@
     <string name="enable_gps">Enable GPS</string>
     <string name="signup">Signup</string>
     <string name="already_registered_signin_here">Already Registered? Signin Here</string>
+    <string name="profile_settings">Profile Settings</string>
+    <string name="about">About</string>
+    <string name="about_this_app">About this app</string>
+    <string name="thanks_to_sabrina_smith_for_the_awesome_logo_design_find_her_on_linkin">Thanks to Sabrina Smith for the awesome logo design. Find her on LinkIn.</string>
+    <string name="weather_information_provided_by_www_openweathermap_org">Weather information provided by www.openweathermap.org</string>
+    <string name="this_app_was_produced_with_assistance_from_the_staff_at_the_arkansas_coding_academy">This app was produced with assistance from the staff at the Arkansas Coding Academy.</string>
+    <string name="logout_and_close">Logout and Close</string>
+    <string name="get_wether"/>
+    <string name="settings">Settings</string>
+    <string name="android_studio">Android Studio</string>
+    <string name="android_studio_android_com">android.studio@android.com</string>
+    <string name="soon_you_will_be_able_to_sae_a_list_of_your_favorite_locations_check_back_for_updates_thank_you_for_your_patience">Soon, you will be able to sae a list of your favorite locations. Check back for updates. Thank you for your patience.</string>
 </resources>

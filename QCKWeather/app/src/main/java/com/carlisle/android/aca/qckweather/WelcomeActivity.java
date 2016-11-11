@@ -28,6 +28,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
     private ProgressDialog progressDialog;
     private TextView txtSignin;
     private static final int MY_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION = 1;
+    private static final int MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
 
     private FirebaseAuth firebaseAuth;
 
@@ -47,6 +48,20 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
                 ActivityCompat.requestPermissions(this,
                         new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
                         MY_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION);
+            }
+        }
+
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED){
+            // Should we show an explanation?
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.ACCESS_FINE_LOCATION)) {
+            } else {
+                //No explanation needed
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                        MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
             }
         }
 
@@ -75,7 +90,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
                     Intent intent = new Intent(this, WelcomeActivity.class);
                     startActivity(intent);
-            } else {
+                 } else {
                     Intent i = new Intent(Intent.ACTION_MAIN);
                     i.addCategory(Intent.CATEGORY_HOME);
                     i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

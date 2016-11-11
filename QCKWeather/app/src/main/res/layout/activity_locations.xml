@@ -12,14 +12,6 @@
     tools:context="com.carlisle.android.aca.qckweather.LocationActivity"
     android:background="@color/colorPrimary">
 
-    <Button
-        android:text="@string/use_current_location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="44dp"
-        android:id="@+id/btnLocation"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -27,15 +19,9 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:id="@+id/txtCity"
-        android:hint="@string/enter_city_st"/>
+        android:text="@string/soon_you_will_be_able_to_sae_a_list_of_your_favorite_locations_check_back_for_updates_thank_you_for_your_patience"
+        android:textSize="36sp"/>
 
-    <Button
-        android:text="@string/get_weather"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnAdd"
-        android:layout_below="@+id/txtCity"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"/>
+
 
 </RelativeLayout>
