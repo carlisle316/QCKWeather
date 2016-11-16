@@ -53,8 +53,8 @@
             android:textColor="#ffffff"/>
 
         <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
             android:layout_marginBottom="88dp"
             android:id="@+id/imgIcon"
             android:layout_alignParentBottom="true"
