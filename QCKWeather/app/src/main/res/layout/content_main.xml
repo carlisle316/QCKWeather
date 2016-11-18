@@ -15,14 +15,6 @@
     tools:showIn="@layout/app_bar_main"
     android:background="@color/colorPrimary">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:srcCompat="@drawable/artboard_1hdpi"
-        android:id="@+id/imgBackground"
-        android:layout_alignParentTop="true"
-        android:background="@color/colorPrimary"/>
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -30,11 +22,19 @@
         android:layout_marginStart="14dp"
         >
 
+        <ImageView
+            app:srcCompat="@drawable/artboard_1hdpi"
+            android:id="@+id/imgBackground"
+            android:layout_alignParentTop="true"
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="325dp"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
             android:layout_marginTop="70dp"
             android:id="@+id/txtLocation"
             android:textSize="32sp"
@@ -45,7 +45,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
             android:layout_marginTop="128dp"
             android:id="@+id/txtTemp"
             android:textSize="32sp"
@@ -53,17 +52,19 @@
             android:textColor="#ffffff"/>
 
         <ImageView
-            android:layout_width="250dp"
-            android:layout_height="250dp"
             android:layout_marginBottom="88dp"
             android:id="@+id/imgIcon"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:layout_height="300dp"
+            android:elevation="24dp"
+            android:layout_width="300dp"/>
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/frameLayout">
+            android:id="@+id/frameLayout"
+            android:layout_alignParentEnd="true">
 
         </FrameLayout>
 
